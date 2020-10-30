@@ -1,0 +1,97 @@
+intents:
+  - greet # 打招呼
+  - goodbye # 再见
+  - mood_unhappy # 不开心
+  - say_thanks # 感谢
+  - whoareyou # 问是谁
+  - whattodo #做什么的
+  - sensitive_word # 敏感词
+  - disease_desc #疾病描述
+  - disease_cause #病因
+  - disease_prevent #预防措施
+  - disease_lasttime #持续时间
+  - disease_cureprob #治愈率
+  - disease_cureway #治疗方式
+  - disease_easyget #易发人群
+  - disease_symptom #症状
+  - symptom_disease #症状导致疾病
+  - disease_acompany #疾病并发症
+  - disease_not_food #疾病忌口
+  - disease_do_food #疾病建议吃的东西
+  - food_not_disease #已知忌口查询疾病
+  - food_do_disease #已知推荐能吃得食物查询疾病
+  - disease_drug #疾病常用药的名称
+  - drug_disease #已知药品查询能够治疗的疾病
+  - disease_check #查询疾病该做的检查
+  - check_disease #已知检查查询疾病
+
+#实体
+entities:
+  - Disease
+  - Symptom
+  - Food
+  - Drug
+  - Check
+
+#插槽
+slots:
+  Disease:
+     type: text
+
+  Symptom:
+    type: text
+
+  Food:
+    type: text
+
+  Drug:
+    type: text
+
+  Check:
+    type: text
+
+
+actions:
+- utter_greet # 回答问好
+- utter_unhappy # 对不开心回复
+- utter_did_that_help # 询问其他帮助
+- utter_goodbye # 再见
+- utter_thanks # 回复感谢词
+- utter_whoareyou # 回复是谁
+- utter_whattodo
+- utter_sensitive_word # 敏感词回复
+- action_diseases #疾病描述回复
+
+templates:
+  utter_greet:
+  - text: "Hey! How are you?"
+  - text: "hello!"
+  - text: "hey! Nice to meet you ~"
+
+  utter_unhappy:
+  - text: "这个世界上哪里有那么多不开心的事情呀！希望你能够抛下烦恼，每天都能够开开心心哒~"
+
+  utter_did_that_help:
+  - text: "您需要我为您做点什么呢？"
+  - text: "我可以为您做点什么呢？"
+
+  utter_goodbye:
+  - text: "Bye"
+  - text: "拜拜ヾ(•ω•`)o 祝您天天开心~"
+
+  utter_thanks:
+  - text: "不客气啦~"
+
+  utter_whoareyou:
+  - text: "我是你的贴身助理，一个小小的机器人"
+  - text: "你可以叫我小吉"
+
+  utter_whattodo:
+  - text: "您好！很高兴为您服务，我可以帮您查找关于医疗知识的查询！（例如：个股的股本规模、技术形态、股票市场类型、所属行业、这份股票好不好等等）。不过除了这些，我还可以适当的陪您聊聊天~ o(*￣▽￣*)ブ"
+
+  utter_sensitive_word:
+  - text: “我们是一个文明的社会了，请你不要说这些不文明的话了！”
+  - text: “你这样说话真的让我很难过 (；′⌒`)”
+  - text: “是我有什么服务不周到的地方吗？”
+  - text: “为什么你要这么对我讲话！”
+  - text: “您不可以对我说这些不文明的词汇！”

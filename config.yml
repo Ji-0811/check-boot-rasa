@@ -1,0 +1,26 @@
+language: zh
+pipeline:
+- name: JiebaTokenizer
+  dictionary_path: "data/dict.txt"
+- name: CRFEntityExtractor
+- OOV_token: oov
+  name: CountVectorsFeaturizer
+  token_pattern: (?u)\b\w+\b
+- name: EmbeddingIntentClassifier
+  epochs: 100
+#- name: DucklingHTTPExtractor
+#  url: http://localhost:7687
+#  epochs: 50
+- name: EntitySynonymMapper
+
+policies:
+- batch_size: 50
+  epochs: 100
+  max_training_samples: 30
+  name: KerasPolicy
+- fallback_action_name: action_default_fallback
+  name: FallbackPolicy
+- max_history: 5
+  name: MemoizationPolicy
+- name: FormPolicy
+- name: MappingPolicy
